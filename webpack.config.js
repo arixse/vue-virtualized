@@ -4,9 +4,8 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 module.exports = {
   mode: 'development',
   entry: path.join(__dirname, 'test', 'index'),
-  watch: true,
   output: {
-    path: __dirname + 'dist',
+    path: path.resolve(__dirname,'dist'),
     publicPath: '/dist/',
     filename: "bundle.js",
     chunkFilename: '[name].js'
@@ -36,9 +35,10 @@ module.exports = {
   ],
   devtool: 'source-map',
   devServer: {
-    contentBase: path.join('/dist/'),
+    contentBase: path.join(__dirname,'./dist/'),
     inline: true,
     host: '127.0.0.1',
     port: 5000,
+    hot:true
   }
 };
