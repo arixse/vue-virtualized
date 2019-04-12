@@ -4,7 +4,7 @@
   "description": "Vuejs components for efficiently rendering large lists and tabular data ",
   "main": "index.js",
   "scripts": {
-    "start": "webpack"
+    "start": "webpack-dev-server"
   },
   "keywords": [
     "Vuejs",
