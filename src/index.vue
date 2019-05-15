@@ -18,7 +18,8 @@ export default {
       startOffset:0,
       datas:[],
       items:[],
-      scrollTop:0
+      scrollTop:0,
+      timer:null
     };
   },
   props: {
@@ -35,13 +36,14 @@ export default {
   },
   methods: {
     handleScroll() {
+      if(this.timer) clearTimeout(this.timer);
       let scrollTop = this.$refs.container.scrollTop;
       if(scrollTop!=this.scrollTop) {
-        setTimeout(()=>{
+        this.timer = setTimeout(()=>{
           this.virtualized.updateVisiableIndex(scrollTop);
           this.scrollTop = scrollTop;
           console.log(scrollTop);
-        })
+        },100)
       }
     }
   },
