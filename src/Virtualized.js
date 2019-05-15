@@ -7,7 +7,6 @@ class Virtualized {
      * @param {*} options 
      */
 	constructor(options) {
-        this.viewport = options.el || window;
         this.bufferSize = 5;
 		this.visiableHeight = options.visiableHeight;
         this.itemHeight = options.itemHeight;

@@ -34,13 +34,11 @@ export default {
   },
   methods: {
     handleScroll() {
-      console.log(this.$refs.container.scrollTop);
       this.virtualized.updateVisiableIndex(this.$refs.container.scrollTop);
     }
   },
   mounted() {
     let virtualized=this.virtualized = new Virtualized({
-      el:this.$refs.wrapper,
       visiableHeight:this.containerHeight,
       itemHeight:this.itemHeight,
       onUpdate:(data,startOffset,endOffset) =>{
