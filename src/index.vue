@@ -46,7 +46,7 @@ export default {
         this.items = data;
       }
     })
-    for(let i=0;i<1000;i++) {
+    for(let i=0;i<10000;i++) {
       this.datas.push({text:"text_data"+i})
     }
     virtualized.setVirtualizedData(this.datas);
@@ -55,7 +55,6 @@ export default {
 </script>
 <style>
 .vue-virtualized-container {
-  border: 1px solid red;
   overflow-y: scroll;
 }
 </style>
