@@ -5,8 +5,8 @@ module.exports = {
 	mode: "development",
 	entry: path.join(__dirname, "test", "index"),
 	output: {
-		path: path.resolve(__dirname, "dist"),
-		publicPath: "/dist/",
+		path: path.resolve(__dirname, "doc"),
+		publicPath: "/doc/",
 		filename: "bundle.js",
 		chunkFilename: "[name].js"
 	},
@@ -56,7 +56,7 @@ module.exports = {
 	],
 	devtool: "source-map",
 	devServer: {
-		contentBase: path.join(__dirname, "./dist/"),
+		contentBase: path.join(__dirname, "./doc/"),
 		inline: true,
 		host: "127.0.0.1",
 		port: 5000,
