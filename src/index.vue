@@ -2,7 +2,7 @@
 <template>
   <div class="vue-virtualized-container" ref="container" @scroll="handleScroll" :style="{width:'300px',height:containerHeight+'px'}">
     <div class="wrapper" :style="{height:datas.length*itemHeight + 'px'}" ref="wrapper">
-      <div :style="{marginTop:startOffset+'px'}">
+      <div :style="{paddingTop:startOffset+'px'}">
         <slot v-for="item in items" :item="item"></slot>
       </div>
     </div>
@@ -37,9 +37,11 @@ export default {
     handleScroll() {
       let scrollTop = this.$refs.container.scrollTop;
       if(scrollTop!=this.scrollTop) {
-        this.virtualized.updateVisiableIndex(scrollTop);
-        this.scrollTop = scrollTop;
-        console.log(scrollTop)
+        setTimeout(()=>{
+          this.virtualized.updateVisiableIndex(scrollTop);
+          this.scrollTop = scrollTop;
+          console.log(scrollTop);
+        })
       }
     }
   },
@@ -52,7 +54,7 @@ export default {
         this.items = data;
       }
     })
-    for(let i=0;i<100;i++) {
+    for(let i=0;i<10000;i++) {
       this.datas.push({text:"text_data"+i})
     }
     virtualized.setVirtualizedData(this.datas);
