@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import Virtualized from "./Virtualized"
+import Virtualized from "./Virtualized";
 export default {
   name: "VueVirtualized",
   data() {
@@ -17,7 +17,8 @@ export default {
       virtualized:null,
       startOffset:0,
       datas:[],
-      items:[]
+      items:[],
+      scrollTop:0
     };
   },
   props: {
@@ -34,7 +35,12 @@ export default {
   },
   methods: {
     handleScroll() {
-      this.virtualized.updateVisiableIndex(this.$refs.container.scrollTop);
+      let scrollTop = this.$refs.container.scrollTop;
+      if(scrollTop!=this.scrollTop) {
+        this.virtualized.updateVisiableIndex(scrollTop);
+        this.scrollTop = scrollTop;
+        console.log(scrollTop)
+      }
     }
   },
   mounted() {
@@ -46,7 +52,7 @@ export default {
         this.items = data;
       }
     })
-    for(let i=0;i<10000;i++) {
+    for(let i=0;i<100;i++) {
       this.datas.push({text:"text_data"+i})
     }
     virtualized.setVirtualizedData(this.datas);
@@ -56,6 +62,9 @@ export default {
 <style>
 .vue-virtualized-container {
   overflow-y: scroll;
+}
+.wrapper {
+  box-sizing: border-box;
 }
 </style>
 

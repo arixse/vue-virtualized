@@ -32,6 +32,7 @@ class Virtualized {
 
     updateVisiableIndex(scrollTop) {
         scrollTop = scrollTop || 0;
+        if(scrollTo>this.virtualizedHeight-this.visiableHeight) return;
         this.startIndex = Math.floor(scrollTop / this.itemHeight);
         this.endIndex = this.startIndex + this.visiableCount;
         this.updateVisiableData();
