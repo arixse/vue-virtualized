@@ -6,7 +6,7 @@ module.exports = {
 	entry: path.join(__dirname, "test", "index"),
 	output: {
 		path: path.resolve(__dirname, "docs"),
-		publicPath: "/docs/",
+		publicPath: "",
 		filename: "bundle.js",
 		chunkFilename: "[name].js"
 	},
