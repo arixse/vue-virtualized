@@ -1,7 +1,7 @@
 
 <template>
   <div class="vue-virtualized-container" ref="container" @scroll="handleScroll" :style="{width:'300px',height:containerHeight+'px'}">
-    <div class="wrapper" :style="{height:datas.length*itemHeight + 'px'}" ref="wrapper">
+    <div class="wrapper" :style="{height:records.length*itemHeight + 'px'}" ref="wrapper">
       <div :style="{paddingTop:startOffset+'px'}">
         <slot v-for="item in items" :item="item"></slot>
       </div>
@@ -16,7 +16,6 @@ export default {
     return {
       virtualized:null,
       startOffset:0,
-      datas:[],
       items:[],
       scrollTop:0,
       timer:null
