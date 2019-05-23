@@ -1,9 +1,9 @@
 <template>
 <VueVirtulized :containerHeight="containerHeight" :itemHeight="itemHeight" :records="records">
-        <div slot-scope="{item}" class="item">
-            {{item.text}}
-        </div>
-    </VueVirtulized>
+    <div slot-scope="{item}" class="item">
+        {{item.text}}
+    </div>
+</VueVirtulized>
 </template>
 <script>
 import VueVirtulized from "../src/index";
