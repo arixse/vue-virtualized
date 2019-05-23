@@ -56,10 +56,16 @@ export default {
         this.items = data;
       }
     })
-    for(let i=0;i<10000;i++) {
-      this.datas.push({text:"text_data"+i})
+  },
+  watch:{
+    records:{
+      handler(records) {
+        if(this.virtualized) {
+          this.virtualized.setVirtualizedData(this.records);
+        }
+      },
+      immediate:true
     }
-    virtualized.setVirtualizedData(this.datas);
   }
 };
 </script>

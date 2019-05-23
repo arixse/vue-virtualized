@@ -1,5 +1,5 @@
 <template>
-<VueVirtulized :containerHeight="containerHeight" :itemHeight="itemHeight">
+<VueVirtulized :containerHeight="containerHeight" :itemHeight="itemHeight" :records="records">
         <div slot-scope="{item}" class="item">
             {{item.text}}
         </div>
@@ -15,7 +15,13 @@ export default {
     data() {
         return {
             containerHeight:350,
-            itemHeight:50
+            itemHeight:50,
+            records:[]
+        }
+    },
+    mounted() {
+        for(let i=0;i<10000;i++) {
+            this.records.push({text:"text_data"+i})
         }
     }
 }
