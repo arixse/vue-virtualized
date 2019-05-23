@@ -2,7 +2,7 @@
   "name": "vue-virtualized",
   "version": "1.0.0",
   "description": "Vuejs components for efficiently rendering large lists and tabular data ",
-  "main": "index.js",
+  "main": "src/index.vue",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack --mode=production"
